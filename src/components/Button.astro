@@ -16,7 +16,7 @@ const href = replaceUrls(url || "#", Astro.url.host);
   href={href}
   class={joinClasses(
     "inline-block uppercase font-bold tracking-[1.3px] bg-blast-off rounded-full py-3 px-6",
-    classes
+    classes,
   )}
   style={styles}
   set:html={content}

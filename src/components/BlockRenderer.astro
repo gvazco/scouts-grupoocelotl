@@ -8,6 +8,8 @@ import Cover from "./Cover.astro";
 import TickItem from "./TickItem.astro";
 import SocialLink from "./SocialLink.astro";
 import PropertySearch from "./PropertySearch.astro";
+import PostSearch from "./PostSearch.astro";
+import CategorySearch from "./CategorySearch.astro";
 import NavigationSubmenu from "./NavigationSubmenu.astro";
 import PropertyDetails from "./PropertyDetails.astro";
 import NavigationLink from "./NavigationLink.astro";
@@ -36,6 +38,10 @@ const { blocks, postId } = Astro.props;
         );
       case "astroestates/property-search":
         return <PropertySearch />;
+      case "astroestates/post-search":
+        return <PostSearch />;
+      case "astroestates/category-search":
+        return <CategorySearch />;
       case "astroestates/property-details":
         return (
           <PropertyDetails

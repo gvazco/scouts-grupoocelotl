@@ -1,8 +1,27 @@
 ---
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
+import "@fontsource/poppins/100-italic.css";
+import "@fontsource/poppins/200-italic.css";
+import "@fontsource/poppins/300-italic.css";
+import "@fontsource/poppins/400-italic.css";
+import "@fontsource/poppins/500-italic.css";
+import "@fontsource/poppins/600-italic.css";
+import "@fontsource/poppins/700-italic.css";
+import "@fontsource/poppins/800-italic.css";
+import "@fontsource/poppins/900-italic.css";
+import "@fontsource/acme";
 import "../styles/global.css";
-// import { ViewTransitions } from "astro:transitions";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { ViewTransitions } from "astro:transitions";
 config.autoAddCss = false;
 
 type Props = {
@@ -16,10 +35,20 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   },
   body: JSON.stringify({
     query: `
-        query MetadataQuery {
-			cssVariables    
+		query MetadataQuery {
+      cssVariables
+      siteLogo {
+        sourceUrl
+      }
+      seo {
+        schema {
+          companyLogo {
+            sourceUrl
+          }
         }
-    `,
+      }
+    }
+		`,
   }),
 });
 const { data } = await response.json();
@@ -28,10 +57,15 @@ const { title, description } = Astro.props;
 
 <head>
   <meta charset="utf-8" />
+  {
+    !!data.seo?.schema?.companyLogo?.sourceUrl && (
+      <link rel="icon" href={data.seo.schema.companyLogo.sourceUrl} />
+    )
+  }
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
   {!!data.cssVariables && <style set:html={`:root{${data.cssVariables}}`} />}
-  <!-- <ViewTransitions /> -->
+  <ViewTransitions />
 </head>

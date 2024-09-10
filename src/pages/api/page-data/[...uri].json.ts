@@ -49,7 +49,7 @@ export async function getStaticPaths() {
             blocks
 					}
 				}
-        properties(first: 10000) {
+        posts(first: 10000) {
           nodes {
             uri
             blocks
@@ -60,21 +60,21 @@ export async function getStaticPaths() {
     }),
   });
   const { data } = await response.json();
-  return [...data.pages.nodes, ...data.properties.nodes]
+  return [...data.pages.nodes, ...data.posts.nodes]
     .filter((page: any) => {
       let found = false;
-      const hasPropertySearch = (blocks: Block[]) => {
+      const hasPostSearch = (blocks: Block[]) => {
         for (let block of blocks) {
-          if (block.name === "astroestates/property-search") {
+          if (block.name === "astroestates/post-search") {
             found = true;
             break;
           }
           if (block.innerBlocks) {
-            hasPropertySearch(block.innerBlocks);
+            hasPostSearch(block.innerBlocks);
           }
         }
       };
-      hasPropertySearch(page.blocks);
+      hasPostSearch(page.blocks);
       return found;
     })
     .map((page: any) => ({

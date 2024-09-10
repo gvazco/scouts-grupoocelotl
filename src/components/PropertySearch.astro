@@ -2,7 +2,7 @@
 import { faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Image } from "astro:assets";
-// import numeral from "numeral";
+import numeral from "numeral";
 const { searchParams } = Astro.url;
 const bedrooms = searchParams.get("bedrooms");
 const bathrooms = searchParams.get("bathrooms");
@@ -113,7 +113,7 @@ filteredProperties = filteredProperties.slice(offset, offset + pageSize);
           <strong>{property.title}</strong>
         </p>
         <p class="text-3xl" transition:name={`price-${property.databaseId}`}>
-          {/* £{numeral(property.propertyDetails.price).format("0,0")} */}
+          £{numeral(property.propertyDetails.price).format("0,0")}
         </p>
         <div class="flex gap-8">
           <div transition:name={`beds-${property.databaseId}`}>
