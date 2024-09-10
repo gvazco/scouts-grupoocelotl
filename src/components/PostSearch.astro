@@ -56,7 +56,7 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
         <option value="experiencia-ocelotl">Experiencia Ocelotl</option>
         <option value="memorias-del-clan">Memorias del Clan</option>
         <option value="blog-scout">Blog Scout</option>
-        <option value="actividades">Próximas activiades</option>
+        <option value="proximas-actividades">Próximas activiades</option>
         <option value="material-de-apoyo">Material de apoyo</option>
         <option value="comunidad-ocelotl">Comunidad G27</option>
       </select>
@@ -66,14 +66,13 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
     type="submit"
     class="w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-event-horizon py-3 px-6"
   >
-    Search
+    Buscar
   </button>
 </form>
 <div class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
   {
     filteredPosts.map((post: any) => (
       <a href={post.uri} class="border border-zinc-200 hover:bg-zinc-100">
-        {console.log(post)}
         {!!post.featuredImage && (
           <Image
             height={post.featuredImage.node.mediaDetails.height}
@@ -92,12 +91,12 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
 
         <div class="flex px-2 flex-col gap-4">
           <div transition:name={`excerpt-${post.databaseId}`}>
-            <div set:html={post.excerpt} />
+            <div class="text-ellipsis" set:html={post.excerpt} />
           </div>
 
           <div transition:name={`tags-${post.databaseId}`}>
             {post.tags.nodes.map((tag: any) => (
-              <span>#{tag.name}, </span>
+              <span class="text-sm">#{tag.name}, </span>
             ))}
           </div>
         </div>

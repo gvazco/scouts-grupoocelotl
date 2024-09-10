@@ -45,6 +45,11 @@
   margin-bottom: 0.5rem;
 }
 
+.listStyle {
+  list-style: disc;
+  margin-left: 1rem;
+}
+
 .wpcf7-form-control {
   @apply border border-black p-2 w-full resize-none;
 }

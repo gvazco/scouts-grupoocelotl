@@ -32,7 +32,6 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
   {
     filteredPosts.map((post: any) => (
       <a href={post.uri} class="border border-zinc-200 hover:bg-zinc-100">
-        {console.log(post)}
         {!!post.featuredImage && (
           <Image
             height={post.featuredImage.node.mediaDetails.height}
@@ -51,12 +50,12 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
 
         <div class="flex px-2 flex-col gap-4">
           <div transition:name={`excerpt-${post.databaseId}`}>
-            <div set:html={post.excerpt} />
+            <div class="text-ellipsis" set:html={post.excerpt} />
           </div>
 
           <div transition:name={`tags-${post.databaseId}`}>
             {post.tags.nodes.map((tag: any) => (
-              <span>#{tag.name}, </span>
+              <span class="text-sm">#{tag.name}, </span>
             ))}
           </div>
         </div>

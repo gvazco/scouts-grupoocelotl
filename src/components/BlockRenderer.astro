@@ -16,6 +16,8 @@ import NavigationLink from "./NavigationLink.astro";
 import { getBlockStyling } from "@wp-block-tools/styles";
 import type { Block } from "@wp-block-tools/styles";
 import { Image } from "astro:assets";
+import { joinClasses } from "../utils/joinClasses";
+
 type Props = {
   postId: number;
   blocks: Block[];
@@ -26,7 +28,7 @@ const { blocks, postId } = Astro.props;
 {
   blocks.map((block) => {
     const { styles, classes } = getBlockStyling(block);
-
+    // console.log(block.name);
     switch (block.name) {
       case "contact-form-7/contact-form-selector":
         return (
@@ -177,6 +179,25 @@ const { blocks, postId } = Astro.props;
             />
           </div>
         );
+      case "core/separator":
+        return <hr style="border: 1px solid gray;" />;
+      case "core/list":
+        return (
+          <ul>
+            <BlockRendererInner
+              blocks={block.innerBlocks || []}
+              postId={postId}
+            />
+          </ul>
+        );
+      case "core/list-item":
+        return (
+          <li
+            class={joinClasses(classes, "listStyle")}
+            style={styles}
+            set:html={block.attributes?.content}
+          />
+        );
       case "core/social-link":
         return (
           <SocialLink
@@ -203,6 +224,21 @@ const { blocks, postId } = Astro.props;
           <BlockRendererInner
             blocks={block.innerBlocks || []}
             postId={postId}
+          />
+        );
+      case "core/embed":
+        // console.log("EMBED", block.attributes.url);
+        return (
+          <iframe
+            width="100%"
+            height="600"
+            class={classes}
+            style={styles}
+            src={block.attributes?.url}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
           />
         );
       default:
