@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
     body: JSON.stringify({
       query: `
       query AllPosts {
-        posts(first: 10000) {
+        posts(first: 1000) {
           nodes {
             databaseId
             featuredImage {

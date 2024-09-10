@@ -43,13 +43,13 @@ export async function getStaticPaths() {
     body: JSON.stringify({
       query: `
 			query AllPages {
-				pages(first: 10000){
+				pages(first: 1000){
 					nodes {
 						uri
             blocks
 					}
 				}
-        posts(first: 10000) {
+        posts(first: 1000) {
           nodes {
             uri
             blocks
