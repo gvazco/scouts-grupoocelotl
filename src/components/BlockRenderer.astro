@@ -67,7 +67,7 @@ const { blocks, postId } = Astro.props;
             width={block.attributes?.width}
             class={classes}
             style={styles}
-            alt=""
+            alt="blog image"
           />
         );
       case "core/button":
@@ -195,14 +195,15 @@ const { blocks, postId } = Astro.props;
           />
         );
       case "core/site-logo":
+        // console.log(block.attributes);
         return (
           <div class={classes} style={styles}>
             <Image
-              height={block.attributes?.width || "50"}
-              width={block.attributes?.width || "50"}
+              height={block.attributes?.width || "100"}
+              width={block.attributes?.width || "250"}
               src={block.attributes?.url || ""}
               alt="Site logo"
-              widths={[50, 75, 100]}
+              widths={[50, 75, 100, 250]}
             />
           </div>
         );
