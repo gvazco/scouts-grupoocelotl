@@ -50,6 +50,10 @@
   margin-left: 1rem;
 }
 
+.galleryStyle {
+  margin: 0.5rem -0.25rem !important;
+}
+
 .galleryStyle div {
   padding: calc(var(--block-gap) / 4);
 }
