@@ -4,7 +4,7 @@ export const GET: APIRoute = async () => {
   const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     method: "POST",
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "application/json; charset=UTF-8",
     },
     body: JSON.stringify({
       query: `

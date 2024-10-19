@@ -21,6 +21,24 @@ type Props = {
   blocks: Block[];
 };
 const { blocks, postId } = Astro.props;
+
+const replacements: { [key: string]: string } = {
+  "Ã¡": "á",
+  "Ã©": "é",
+  Ã: "í",
+  "Ã³": "ó",
+  Ãº: "ú",
+  "Ã±": "ñ",
+  "Ã¼": "ü",
+  // Añade más si encuentras otros caracteres
+};
+
+function fixAccents(text: string): string {
+  return text.replace(
+    /Ã¡|Ã©|Ã|Ã³|Ãº|Ã±|Ã¼/g,
+    (match) => replacements[match] || match
+  );
+}
 ---
 
 {
@@ -60,23 +78,29 @@ const { blocks, postId } = Astro.props;
           </TickItem>
         );
       case "core/image":
+        console.log(block);
         return (
-          <Image
-            src={block.attributes?.url}
-            height={block.attributes?.height}
-            width={block.attributes?.width}
-            class={classes}
-            style={styles}
-            alt="blog image"
-          />
+          <a href={block.attributes?.href} target="_blank">
+            <Image
+              src={block.attributes?.url}
+              height={block.attributes?.height}
+              width={block.attributes?.width}
+              class={classes}
+              style={styles}
+              alt="core image"
+            />
+          </a>
         );
       case "core/button":
+        // console.log("BUTTON: ", block);
+        let label = block.attributes?.content || "";
+        label = fixAccents(label);
         return (
           <Button
             classes={classes}
             styles={styles}
             url={block.attributes?.url}
-            content={block.attributes?.content || ""}
+            content={label}
           />
         );
       case "core/post-title":
@@ -93,6 +117,8 @@ const { blocks, postId } = Astro.props;
           />
         );
       case "core/cover":
+        console.log(block.attributes?.height);
+        console.log("BLOCK", block);
         return (
           <Cover
             classes={classes}
@@ -229,8 +255,37 @@ const { blocks, postId } = Astro.props;
             allowfullscreen
           />
         );
+      case "cb/carousel":
+        console.log(block);
+        return (
+          <div class="slider-wrapper">
+            <div class="buttons">
+              <button class="prev">‹</button>
+              <button class="next">›</button>
+            </div>
+
+            <div class="slider-container">
+              <BlockRendererInner
+                blocks={block.innerBlocks || []}
+                postId={postId}
+              />
+            </div>
+          </div>
+        );
+      case "cb/slide":
+        console.log(block);
+        return (
+          <div class="slider-item">
+            <BlockRendererInner
+              blocks={block.innerBlocks || []}
+              postId={postId}
+            />
+          </div>
+        );
       default:
         return null;
     }
   })
 }
+
+<script type="module" src="/slider.js"></script>
