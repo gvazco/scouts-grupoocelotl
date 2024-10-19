@@ -50,6 +50,10 @@
   margin-left: 1rem;
 }
 
+.galleryStyle div {
+  padding: calc(var(--block-gap) / 4);
+}
+
 .slider-container {
   margin-block-start: 0.3rem !important;
 }
