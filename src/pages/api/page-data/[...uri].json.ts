@@ -63,18 +63,21 @@ export async function getStaticPaths() {
   return [...data.pages.nodes, ...data.posts.nodes]
     .filter((page: any) => {
       let found = false;
-      const hasPostSearch = (blocks: Block[]) => {
+      const hasModelSearch = (blocks: Block[]) => {
         for (let block of blocks) {
-          if (block.name === "astroestates/post-search") {
+          if (block.name === "astroestates/content-search") {
+            found = true;
+            break;
+          } else if (block.name === "astroestates/community-search") {
             found = true;
             break;
           }
           if (block.innerBlocks) {
-            hasPostSearch(block.innerBlocks);
+            hasModelSearch(block.innerBlocks);
           }
         }
       };
-      hasPostSearch(page.blocks);
+      hasModelSearch(page.blocks);
       return found;
     })
     .map((page: any) => ({

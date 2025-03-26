@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +12,7 @@
 @layer base {
   body {
     font-family: "Poppins", sans-serif;
+    background-color: #e2e8f0;
   }
   h1,
   h2,
@@ -12,7 +20,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Acme", sans-serif;
+    font-family: "Inder", sans-serif;
     font-weight: bold;
   }
 
@@ -45,20 +53,27 @@
   margin-bottom: 0.5rem;
 }
 
+.loader {
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .listStyle {
   list-style: disc;
   margin-left: 1rem;
 }
 
-.galleryStyle {
-  margin: 0.5rem -0.25rem !important;
-}
-
-.galleryStyle div {
-  padding: calc(var(--block-gap) / 4);
-}
-
 .slider-container {
+  -webkit-margin-before: 0.3rem !important;
   margin-block-start: 0.3rem !important;
 }
 
@@ -78,26 +93,59 @@
 
 /* Estilo de la pista del scrollbar */
 .slider-container::-webkit-scrollbar-track {
-  background: linear-gradient(to left, #8f31a9, #ff6e01);
+  cursor: grab;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#14b8a6),
+    to(#0d9488)
+  );
+  background: linear-gradient(to right, #14b8a6, #0d9488);
   border-radius: 6px;
   margin-bottom: 1rem;
 }
 
 /* Estilo del pulgar del scrollbar */
 .slider-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #012345, #004e7e);
+  cursor: grab;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#eb9306),
+    to(#a56e14)
+  );
+  background: linear-gradient(to right, #eb9306, #a56e14);
   border-radius: 6px;
 }
 
 /* Estilo del pulgar al pasar el mouse por encima */
 .slider-container::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to right, #004e7e, #012345);
+  cursor: grab;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#a56e14),
+    to(#eb9306)
+  );
+  background: linear-gradient(to right, #a56e14, #eb9306);
 }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: end;
+  -webkit-column-gap: 0.5rem;
+  -moz-column-gap: 0.5rem;
   column-gap: 0.5rem;
 }
 
@@ -117,40 +165,148 @@
 }
 
 .slider-wrapper {
+  -webkit-margin-before: 0.5rem !important;
   margin-block-start: 0.5rem !important;
   max-width: 1200px !important;
 }
 
 .slider-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
   overflow-x: scroll;
+  -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
 }
 
 .slider-container .slider-item {
-  flex: 0 0 33.33%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
   margin: 0.5rem;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   scroll-snap-align: center;
 }
 
 @media (max-width: 575px) {
   .slider-container .slider-item {
-    flex: 0 0 50%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
   }
 }
 
+.whatsapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.whatsapp__button {
+  border-width: 2px;
+  border-radius: 0px;
+  border-color: rgb(15, 23, 42);
+  background-color: rgb(20, 184, 166);
+  color: rgb(15, 23, 42);
+  padding: 0.6rem 0.5rem;
+  min-width: 1px;
+  font-family: "Inder", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.phone__button {
+  border-width: 2px;
+  border-radius: 0px;
+  border-color: rgb(15, 23, 42);
+  background-color: rgb(203, 213, 225);
+  color: rgb(15, 23, 42);
+  padding: 0.6rem 0.5rem;
+  min-width: 1px;
+  font-family: "Inder", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.budget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.budget__button {
+  border-width: 2px;
+  border-radius: 0px;
+  border-color: rgb(15, 23, 42);
+  background-color: rgb(203, 213, 225);
+  color: rgb(15, 23, 42);
+  padding: 0.6rem 0.5rem;
+  min-width: 1px;
+  font-family: "Inder", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.galleryStyle {
+  margin: 0.5rem -0.25rem !important;
+}
+
+.galleryStyle div {
+  padding: calc(var(--block-gap) / 4);
+}
+
+.yarl__slide {
+  @apply flex flex-col items-center justify-center;
+}
+
+.yarl__slide_title_container .yarl__slide_title {
+  @apply text-white text-center text-sm md:text-base font-bold m-1;
+}
+
+.yarl__slide_description_container .yarl__slide_description {
+  @apply text-white text-center text-xs md:text-sm md:p-2;
+}
+
 .wpcf7-form-control {
-  @apply border border-black p-2 w-full resize-none;
+  @apply border border-black p-2 w-full resize-none text-black;
 }
 
 .wpcf7-form {
-  @apply max-w-sm;
+  @apply max-w-md text-white;
+}
+
+.wpcf7-form p {
+  @apply mt-2;
 }
 
 .wpcf7-submit {
-  @apply w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-event-horizon rounded-full py-3 px-6;
+  @apply w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-event-horizon py-3 px-6;
 }
