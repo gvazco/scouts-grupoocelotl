@@ -55,7 +55,7 @@ export const PostGallery = ({ postgallery, postId }: Props) => {
       <div className="post-gallery flex flex-row flex-wrap gap-2 sm:gap-3 md:gap-5 mt-3 justify-around items-center">
         {postgallery.map((post, index) => (
           <div
-            className="post-item"
+            className="post-item "
             onClick={() => {
               setPhotoIndex(index);
               setOpen(true);
@@ -64,7 +64,7 @@ export const PostGallery = ({ postgallery, postId }: Props) => {
             <img
               src={post.url}
               alt={post.alt}
-              className="max-w-[100px]  sm:max-w-[230px] md:max-w-[277px] lg:max-w-[308px]"
+              className="max-w-[103px]  sm:max-w-[230px] md:max-w-[277px] lg:max-w-[308px]"
             />
           </div>
         ))}

@@ -53,6 +53,29 @@
   margin-bottom: 0.5rem;
 }
 
+.post-item:hover {
+  cursor: pointer;
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .loader {
   border-top-color: #3498db;
   animation: spin 1s ease-in-out infinite;
