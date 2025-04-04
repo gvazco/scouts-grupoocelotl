@@ -53,7 +53,7 @@ function fixAccents(text: string): string {
 {
   blocks.map((block) => {
     const { styles, classes } = getBlockStyling(block);
-    console.log(block.name);
+    // console.log(block.name);
     switch (block.name) {
       case "contact-form-7/contact-form-selector":
         return (
@@ -319,7 +319,7 @@ function fixAccents(text: string): string {
           />
         );
       case "cb/carousel":
-        // console.log(block);
+        console.log(block);
         return (
           <div class="slider-wrapper">
             <div class="slider-container">
