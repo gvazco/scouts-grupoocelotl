@@ -64,7 +64,7 @@ export const PostGallery = ({ postgallery, postId }: Props) => {
             <img
               src={post.url}
               alt={post.alt}
-              className="max-w-[103px]  sm:max-w-[230px] md:max-w-[277px] lg:max-w-[308px]"
+              className="max-w-[115px]  sm:max-w-[230px] md:max-w-[277px] lg:max-w-[308px]"
             />
           </div>
         ))}
