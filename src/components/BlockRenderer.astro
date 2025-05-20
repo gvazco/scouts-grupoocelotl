@@ -128,6 +128,18 @@ function fixAccents(text: string): string {
             postId={postId}
           />
         );
+      case "core/audio":
+        console.log(block);
+        return (
+          <audio
+            controls
+            class={joinClasses(classes, "audioStyle")}
+            style={styles}
+          >
+            <source src={block.attributes?.src} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        );
       case "core/gallery":
         return (
           <div style={styles} class={joinClasses(classes, "galleryStyle")}>
@@ -319,7 +331,6 @@ function fixAccents(text: string): string {
           />
         );
       case "cb/carousel":
-        console.log(block);
         return (
           <div class="slider-wrapper">
             <div class="slider-container">
@@ -331,7 +342,6 @@ function fixAccents(text: string): string {
           </div>
         );
       case "cb/slide":
-        console.log(block);
         return (
           <div class="slider-item">
             <BlockRendererInner
