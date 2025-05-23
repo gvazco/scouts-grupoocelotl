@@ -274,9 +274,8 @@
 
 .slider-container .slider-item {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 40%;
-  flex: 0 0 40%;
-  margin: 0.5rem;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
