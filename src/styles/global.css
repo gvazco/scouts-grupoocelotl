@@ -60,7 +60,6 @@
 
 .wrapper.banner {
   text-align: center;
-  max-width: 100% !important;
 }
 
 .wrapper.banner.pack-of-wolves {
@@ -103,15 +102,12 @@
   font-weight: 800;
   background-position: 0 0;
   text-transform: uppercase;
-  animation:
-    animatedOne 30s linear infinite,
-    transform 0.3s ease-out;
+  animation: animatedOne 30s linear infinite;
   transition: 2s ese-out;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 .banner h3:hover {
-  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -167,7 +163,7 @@
     opacity: 0.8;
   }
   100% {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0;
   }
 }

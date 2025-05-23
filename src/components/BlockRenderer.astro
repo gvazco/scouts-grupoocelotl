@@ -20,6 +20,7 @@ import CategorySearch from "./CategorySearch.astro";
 import CategoryContent from "./CategoryContent.astro";
 import NavigationSubmenu from "./NavigationSubmenu.astro";
 import NavigationLink from "./NavigationLink.astro";
+import CatchwordBanner from "./CatchwordBanner.astro";
 import { getBlockStyling } from "@wp-block-tools/styles";
 import type { Block } from "@wp-block-tools/styles";
 import { Image } from "astro:assets";
@@ -65,22 +66,13 @@ function fixAccents(text: string): string {
         );
       case "astroestates/catchword-banner":
         return (
-          <div
-            class={
-              joinClasses(classes, "wrapper banner ") +
-              block.attributes?.data?.catchword_styles
-            }
-            style={styles}
-          >
-            <a
-              href={block.attributes?.data?.catchword_url}
-              class="banner-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>{block.attributes?.data?.catchword}</h3>
-            </a>
-          </div>
+          <CatchwordBanner
+            classes={classes}
+            styles={styles}
+            catchword={block.attributes?.data?.catchword}
+            catchwordUrl={block.attributes?.data?.catchword_url}
+            catchwordStyles={block.attributes?.data?.catchword_styles}
+          />
         );
       case "astroestates/post-search":
         return <PostSearch />;
@@ -148,7 +140,6 @@ function fixAccents(text: string): string {
           />
         );
       case "core/audio":
-        console.log(block);
         return (
           <audio
             controls
