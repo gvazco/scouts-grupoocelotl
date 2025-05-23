@@ -77,7 +77,7 @@
 .banner.pack-of-wolves h3 {
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: #0d335990;
+  -webkit-text-fill-color: #0d335950;
 }
 
 .banner.youth-troop h3 {
@@ -94,16 +94,16 @@
 
 .banner h3 {
   font-family: "New Amsterdam", sans-serif;
-  background: url(https://cdn.pixabay.com/photo/2017/08/29/22/16/victorian-2695067_1280.jpg);
+  background: url(https://png.pngtree.com/thumb_back/fw800/background/20240107/pngtree-nature-adventure-vibrant-vector-pattern-with-camping-and-hiking-theme-a-image_13901697.png);
   margin: 1.5rem;
   display: inline-flex;
-  font-size: 6rem;
+  font-size: 6.5rem;
   letter-spacing: 5px;
   line-height: 5rem;
   font-weight: 800;
   background-position: 0 0;
   text-transform: uppercase;
-  animation: animatedOne 30s linear infinite;
+  animation: animatedOne 20s linear infinite;
   transition: 2s ese-out;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
@@ -449,4 +449,8 @@
 
 .wpcf7-submit {
   @apply w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-dark-engine py-3 px-6;
+}
+
+.svg-inline--fa {
+  @apply text-white;
 }

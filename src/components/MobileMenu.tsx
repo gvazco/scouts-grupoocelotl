@@ -14,7 +14,7 @@ export const MobileMenu = ({ children }: Props) => {
         <FontAwesomeIcon icon={faBars} />
       </div>
       {!!open && (
-        <div className="fixed top-0 left-0 max-h-screen overflow-auto w-screen bg-dark-engine">
+        <div className="fixed top-0 left-0 max-h-screen overflow-auto w-screen bg-dark-engine text-white">
           <div
             className="text-3xl fixed top-4 right-3"
             onClick={() => setOpen(false)}
