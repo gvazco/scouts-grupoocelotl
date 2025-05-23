@@ -99,6 +99,7 @@
   display: inline-flex;
   font-size: 6rem;
   letter-spacing: 5px;
+  line-height: 5rem;
   font-weight: 800;
   background-position: 0 0;
   text-transform: uppercase;
@@ -107,65 +108,15 @@
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
+@media (max-width: 575px) {
+  .banner h3 {
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+}
+
 .banner h3:hover {
   cursor: pointer;
-}
-
-.banner h3:hover::before,
-.banner h3:hover::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  border-radius: 20%;
-  transform: translate(-50%, -50%) scale(0);
-  animation: burst 0.8s ease-out forwards;
-}
-
-.pack-of-wolves.banner h3:hover::before {
-  background: radial-gradient(circle, rgba(165, 110, 20, 0.6), transparent);
-  z-index: -1;
-}
-
-.pack-of-wolves.banner h3:hover::after {
-  background: radial-gradient(circle, rgba(165, 110, 20, 0.6), transparent);
-  z-index: -2;
-}
-
-.youth-troop.banner h3:hover::before {
-  background: radial-gradient(circle, rgba(14, 132, 121, 0.6), transparent);
-  z-index: -1;
-}
-
-.youth-troop.banner h3:hover::after {
-  background: radial-gradient(circle, rgba(14, 132, 121, 0.6), transparent);
-  z-index: -2;
-}
-
-.clan-rover.banner h3:hover::before {
-  background: radial-gradient(circle, rgba(146, 37, 35, 0.6), transparent);
-  z-index: -1;
-}
-
-.clan-rover.banner h3:hover::after {
-  background: radial-gradient(circle, rgba(146, 37, 35, 0.6), transparent);
-  z-index: -2;
-}
-
-@keyframes burst {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-  }
 }
 
 @keyframes animatedOne {
@@ -187,6 +138,7 @@
   -webkit-animation: flash 1.5s;
   animation: flash 1.5s;
 }
+
 @-webkit-keyframes flash {
   0% {
     opacity: 0.4;
