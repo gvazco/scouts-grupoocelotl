@@ -13,7 +13,7 @@ const { price, bedrooms, bathrooms, postId } = Astro.props;
 const priceFormatted = numeral(price).format("0,0");
 ---
 
-<div class="bg-event-horizon max-w-sm mx-auto w-full text-white p-5">
+<div class="bg-dark-engine max-w-sm mx-auto w-full text-white p-5">
   <p class="text-center text-3xl" transition:name={`price-${postId}`}>
     £{priceFormatted}
   </p>

@@ -20,6 +20,7 @@ import CategorySearch from "./CategorySearch.astro";
 import CategoryContent from "./CategoryContent.astro";
 import NavigationSubmenu from "./NavigationSubmenu.astro";
 import NavigationLink from "./NavigationLink.astro";
+import CatchwordBanner from "./CatchwordBanner.astro";
 import { getBlockStyling } from "@wp-block-tools/styles";
 import type { Block } from "@wp-block-tools/styles";
 import { Image } from "astro:assets";
@@ -53,7 +54,7 @@ function fixAccents(text: string): string {
 {
   blocks.map((block) => {
     const { styles, classes } = getBlockStyling(block);
-    // console.log(block.name);
+    console.log(block.name);
     switch (block.name) {
       case "contact-form-7/contact-form-selector":
         return (
@@ -61,6 +62,16 @@ function fixAccents(text: string): string {
             client:only="react"
             formId={block.attributes?.id}
             formMarkup={block.attributes?.formMarkup}
+          />
+        );
+      case "astroestates/catchword-banner":
+        return (
+          <CatchwordBanner
+            classes={classes}
+            styles={styles}
+            catchword={block.attributes?.data?.catchword}
+            catchwordUrl={block.attributes?.data?.catchword_url}
+            catchwordStyles={block.attributes?.data?.catchword_styles}
           />
         );
       case "astroestates/post-search":
@@ -127,6 +138,17 @@ function fixAccents(text: string): string {
             whatsapp={block.attributes?.whatsapp}
             postId={postId}
           />
+        );
+      case "core/audio":
+        return (
+          <audio
+            controls
+            class={joinClasses(classes, "audioStyle")}
+            style={styles}
+          >
+            <source src={block.attributes?.src} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
         );
       case "core/gallery":
         return (
@@ -319,9 +341,8 @@ function fixAccents(text: string): string {
           />
         );
       case "cb/carousel":
-        console.log(block);
         return (
-          <div class="slider-wrapper">
+          <div class="slider-wrapper animate__animated animate__lightSpeedInRight animate__fast">
             <div class="slider-container">
               <BlockRendererInner
                 blocks={block.innerBlocks || []}
@@ -331,9 +352,8 @@ function fixAccents(text: string): string {
           </div>
         );
       case "cb/slide":
-        console.log(block);
         return (
-          <div class="slider-item">
+          <div class="slider-item animate__animated animate__zoomIn">
             <BlockRendererInner
               blocks={block.innerBlocks || []}
               postId={postId}

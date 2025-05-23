@@ -1,0 +1,27 @@
+---
+import { joinClasses } from "../utils/joinClasses";
+type Props = {
+  classes: string;
+  styles: string;
+  catchword: string;
+  catchwordUrl: string;
+  catchwordStyles: string;
+};
+
+const { classes, styles, catchword, catchwordUrl, catchwordStyles } =
+  Astro.props;
+---
+
+<div
+  class={joinClasses(classes, "wrapper banner ") + catchwordStyles}
+  style={styles}
+>
+  <a
+    href={catchwordUrl}
+    class="banner-link"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <h3>{catchword}</h3>
+  </a>
+</div>
