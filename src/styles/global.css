@@ -11,17 +11,21 @@
 
 @layer base {
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inconsolata", sans-serif;
     background-color: #222a3a;
   }
   h1,
-  h2,
+  h2 {
+    font-family: "New Amsterdam", sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
   h3,
   h4,
   h5,
   h6 {
-    font-family: "Inder", sans-serif;
-    font-weight: bold;
+    font-family: "Domine", sans-serif;
   }
 
   h1 {
@@ -46,6 +50,134 @@
 
   h6 {
     font-size: 0.67em;
+  }
+}
+
+.main-nav {
+  font-family: "New Amsterdam", sans-serif;
+  letter-spacing: 1px;
+}
+
+.wrapper.banner {
+  text-align: center;
+  max-width: 100% !important;
+}
+
+.wrapper.banner.pack-of-wolves {
+  background-color: #f1a62d;
+}
+
+.wrapper.banner.youth-troop {
+  background-color: #14b8a6;
+}
+
+.wrapper.banner.clan-rover {
+  background-color: #8e0704;
+}
+
+.banner.pack-of-wolves h3 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #0d335990;
+}
+
+.banner.youth-troop h3 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #8f31a990;
+}
+
+.banner.clan-rover h3 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #a3a3a390;
+}
+
+.banner h3 {
+  font-family: "New Amsterdam", sans-serif;
+  background: url(https://cdn.pixabay.com/photo/2017/08/29/22/16/victorian-2695067_1280.jpg);
+  margin: 1.5rem;
+  display: inline-flex;
+  font-size: 6rem;
+  letter-spacing: 5px;
+  font-weight: 800;
+  background-position: 0 0;
+  text-transform: uppercase;
+  animation:
+    animatedOne 30s linear infinite,
+    transform 0.3s ease-out;
+  transition: 2s ese-out;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.banner h3:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.banner h3:hover::before,
+.banner h3:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: burst 0.8s ease-out forwards;
+}
+
+.pack-of-wolves.banner h3:hover::before {
+  background: radial-gradient(circle, rgba(165, 110, 20, 0.6), transparent);
+  z-index: -1;
+}
+
+.pack-of-wolves.banner h3:hover::after {
+  background: radial-gradient(circle, rgba(165, 110, 20, 0.6), transparent);
+  z-index: -2;
+}
+
+.youth-troop.banner h3:hover::before {
+  background: radial-gradient(circle, rgba(14, 132, 121, 0.6), transparent);
+  z-index: -1;
+}
+
+.youth-troop.banner h3:hover::after {
+  background: radial-gradient(circle, rgba(14, 132, 121, 0.6), transparent);
+  z-index: -2;
+}
+
+.clan-rover.banner h3:hover::before {
+  background: radial-gradient(circle, rgba(146, 37, 35, 0.6), transparent);
+  z-index: -1;
+}
+
+.clan-rover.banner h3:hover::after {
+  background: radial-gradient(circle, rgba(146, 37, 35, 0.6), transparent);
+  z-index: -2;
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes animatedOne {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
   }
 }
 
@@ -143,29 +275,6 @@
     transparent
   );
 }
-
-/* Estilo del pulgar al pasar el mouse por encima */
-/* .slider-container::-webkit-scrollbar-thumb:hover {
-  cursor: grab;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#a56e14),
-    to(#f1a62d)
-  );
-  background: linear-gradient(to right, #a56e14, #f1a62d);
-} */
-
-/* @keyframes animate {
-  0%,
-  100% {
-    filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(360deg);
-  }
-} */
 
 .buttons {
   display: -webkit-box;
@@ -339,6 +448,33 @@
   font-size: 14px;
 }
 
+.domine-regular {
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.josefin-slab-regular {
+  font-family: "Josefin Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.new-amsterdam-regular {
+  font-family: "New Amsterdam", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dosis-regular {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .yarl__slide {
   @apply flex flex-col items-center justify-center;
 }
@@ -364,5 +500,5 @@
 }
 
 .wpcf7-submit {
-  @apply w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-event-horizon py-3 px-6;
+  @apply w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-dark-engine py-3 px-6;
 }

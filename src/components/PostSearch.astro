@@ -41,7 +41,7 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
         value={title}
         type="text"
         name="title"
-        class="w-full py-1 px-2 border border-event-horizon rounded-sm"
+        class="w-full py-1 px-2 border border-dark-engine rounded-sm"
       />
     </div>
 
@@ -50,7 +50,7 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
       <select
         id="category-select"
         name="category"
-        class="w-full py-1 px-2 border border-event-horizon rounded-sm"
+        class="w-full py-1 px-2 border border-dark-engine rounded-sm"
       >
         <option value="">--Por favor, elija una opción--</option>
         <option value="experiencia-ocelotl">Experiencia Ocelotl</option>
@@ -64,7 +64,7 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
   </fieldset>
   <button
     type="submit"
-    class="w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-event-horizon py-3 px-6"
+    class="w-full text-white inline-block uppercase font-bold tracking-[1.3px] bg-dark-engine py-3 px-6"
   >
     Buscar
   </button>
@@ -110,7 +110,7 @@ filteredPosts = filteredPosts.slice(offset, offset + pageSize);
       <a
         class={`block px-3 py-2 rounded-md ${
           i + 1 === pageNumber
-            ? `bg-event-horizon text-white`
+            ? `bg-dark-engine text-white`
             : `bg-zinc-200 hover:bg-zinc-300`
         }`}
         href={`?${

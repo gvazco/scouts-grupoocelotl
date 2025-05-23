@@ -53,7 +53,7 @@ function fixAccents(text: string): string {
 {
   blocks.map((block) => {
     const { styles, classes } = getBlockStyling(block);
-    // console.log(block.name);
+    console.log(block.name);
     switch (block.name) {
       case "contact-form-7/contact-form-selector":
         return (
@@ -62,6 +62,25 @@ function fixAccents(text: string): string {
             formId={block.attributes?.id}
             formMarkup={block.attributes?.formMarkup}
           />
+        );
+      case "astroestates/catchword-banner":
+        return (
+          <div
+            class={
+              joinClasses(classes, "wrapper banner ") +
+              block.attributes?.data?.catchword_styles
+            }
+            style={styles}
+          >
+            <a
+              href={block.attributes?.data?.catchword_url}
+              class="banner-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>{block.attributes?.data?.catchword}</h3>
+            </a>
+          </div>
         );
       case "astroestates/post-search":
         return <PostSearch />;
@@ -332,7 +351,7 @@ function fixAccents(text: string): string {
         );
       case "cb/carousel":
         return (
-          <div class="slider-wrapper">
+          <div class="slider-wrapper animate__animated animate__lightSpeedInRight animate__fast">
             <div class="slider-container">
               <BlockRendererInner
                 blocks={block.innerBlocks || []}
@@ -343,7 +362,7 @@ function fixAccents(text: string): string {
         );
       case "cb/slide":
         return (
-          <div class="slider-item">
+          <div class="slider-item animate__animated animate__zoomIn">
             <BlockRendererInner
               blocks={block.innerBlocks || []}
               postId={postId}

@@ -1,23 +1,6 @@
 ---
-import "@fontsource/poppins/100.css";
-import "@fontsource/poppins/200.css";
-import "@fontsource/poppins/300.css";
-import "@fontsource/poppins/400.css";
-import "@fontsource/poppins/500.css";
-import "@fontsource/poppins/600.css";
-import "@fontsource/poppins/700.css";
-import "@fontsource/poppins/800.css";
-import "@fontsource/poppins/900.css";
-import "@fontsource/poppins/100-italic.css";
-import "@fontsource/poppins/200-italic.css";
-import "@fontsource/poppins/300-italic.css";
-import "@fontsource/poppins/400-italic.css";
-import "@fontsource/poppins/500-italic.css";
-import "@fontsource/poppins/600-italic.css";
-import "@fontsource/poppins/700-italic.css";
-import "@fontsource/poppins/800-italic.css";
-import "@fontsource/poppins/900-italic.css";
-import "@fontsource/acme";
+// import "@fontsource/poppins/100.css";
+import "animate.css";
 import "../styles/global.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -67,6 +50,9 @@ const { title, description } = Astro.props;
   <title>{title}</title>
   <meta name="description" content={description} />
   {!!data.cssVariables && <style set:html={`:root{${data.cssVariables}}`} />}
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inconsolata:wght@200..900&family=New+Amsterdam&display=swap");
+  </style>
   <ViewTransitions />
 
   <script is:inline>
