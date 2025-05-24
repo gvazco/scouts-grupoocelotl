@@ -60,6 +60,7 @@
 
 .wrapper.banner {
   text-align: center;
+  margin-block-start: 0 !important;
 }
 
 .wrapper.banner.pack-of-wolves {
@@ -103,7 +104,7 @@
   font-weight: 800;
   background-position: 0 0;
   text-transform: uppercase;
-  animation: animatedOne 20s linear infinite;
+  animation: animatedOne 30s linear infinite;
   transition: 2s ese-out;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
@@ -267,9 +268,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  overflow-x: scroll;
-  -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
 }
 
 .slider-container .slider-item {
@@ -283,7 +282,7 @@
 }
 
 .slider-container .slider-item:hover {
-  cursor: pointer;
+  cursor: move;
   opacity: 1;
   -webkit-animation: flash 1.5s;
   animation: flash 1.5s;
